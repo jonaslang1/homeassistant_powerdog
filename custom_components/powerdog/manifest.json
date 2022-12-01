@@ -1,0 +1,13 @@
+{
+  "domain": "powerdog",
+  "name": "PowerDog",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "integration_type": "hub",
+  "documentation": "https://github.com/jonaslang1/homeassistant_powerdog",
+  "issue_tracker": "https://github.com/jonaslang1/homeassistant_powerdog/issues",
+  "version": "v0.0.1",
+  "dependencies": [],
+  "codeowners": ["@jonaslang1"],
+  "requirements": []
+}
