@@ -17,6 +17,7 @@ from .const import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 
+@config_entries.HANDLERS.register(DOMAIN)
 class PowerdogConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for PowerDog."""
 
@@ -43,9 +44,6 @@ class PowerdogConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except powerdog_api.NoItemFoundException:
                 errors["base"] = "cannot_retrieve_device_info"
-            except Exception:
-                _LOGGER.exception("Unexpected exception")
-                errors["base"] = "unknown"
 
             if not errors:
                 await self.async_set_unique_id(
