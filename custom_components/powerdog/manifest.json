@@ -1,10 +1,14 @@
 {
-  "domain": "sma",
-  "name": "SMA Solar",
+  "domain": "powerdog",
+  "name": "PowerDog",
   "config_flow": true,
-  "documentation": "https://www.home-assistant.io/integrations/sma",
+  "iot_class": "cloud_polling",
+  "integration_type": "hub",
+  "documentation": "https://github.com/jonaslang1/homeassistant_powerdog",
+  "issue_tracker": "https://github.com/jonaslang1/homeassistant_powerdog/issues",
+  "version": "v0.0.3",
+  "dependencies": [],
+  "codeowners": ["@jonaslang1"],
   "requirements": ["pysma==0.7.3"],
-  "codeowners": ["@kellerza", "@rklomp"],
-  "iot_class": "local_polling",
   "loggers": ["pysma"]
 }
