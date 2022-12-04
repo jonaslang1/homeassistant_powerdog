@@ -17,8 +17,7 @@ from .const import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 
-@config_entries.HANDLERS.register(DOMAIN)
-class PowerdogConfigFlow(FlowHandler, domain=DOMAIN):
+class PowerdogConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for PowerDog."""
 
     VERSION = 1
