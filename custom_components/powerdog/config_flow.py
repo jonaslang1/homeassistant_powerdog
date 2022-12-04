@@ -8,7 +8,7 @@ import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
-from homeassistant.data_entry_flow import FlowResult
+from homeassistant.data_entry_flow import FlowResult, FlowHandler
 import homeassistant.helpers.config_validation as cv
 
 from powerdog import powerdog_api
@@ -18,7 +18,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @config_entries.HANDLERS.register(DOMAIN)
-class PowerdogConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class PowerdogConfigFlow(FlowHandler, domain=DOMAIN):
     """Handle a config flow for PowerDog."""
 
     VERSION = 1
@@ -27,8 +27,14 @@ class PowerdogConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self, user_input = None
     ) -> FlowResult:
         """User step in config flow."""
-        #return self.async_show_form(None)
+        data_schema = {
+            vol.Required("username"): str,
+            vol.Required("password"): str,
+        }
 
+        return self.async_show_form(
+            step_id="init", data_schema=vol.Schema(data_schema), errors=errors
+        )
         # errors = {}
         # if user_input is not None:
         #     try:
